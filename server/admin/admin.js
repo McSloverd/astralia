@@ -7,9 +7,90 @@ const expiryForm = document.getElementById('expiry-form');
 const expiryDaysInput = document.getElementById('expiry-days');
 const expirySuccess = document.getElementById('expiry-success');
 
+const adminsTableContainer = document.getElementById('admins-table-container');
+const addAdminForm = document.getElementById('add-admin-form');
+const adminAddMsg = document.getElementById('admin-add-msg');
+
 document.getElementById('logout-btn').onclick = () => {
   sessionStorage.removeItem('admin_token');
   window.location.href = 'login.html';
+};
+
+async function fetchAdmins() {
+  adminsTableContainer.innerHTML = "Loading...";
+  try {
+    const resp = await fetch('/api/admin/admins', {
+      headers: { 'Authorization': 'Bearer ' + adminToken },
+    });
+    if (!resp.ok) throw new Error();
+    const data = await resp.json();
+    renderAdminsTable(data.admins || []);
+  } catch {
+    adminsTableContainer.innerHTML = "Failed to load admins.";
+  }
+}
+
+function renderAdminsTable(admins) {
+  if (admins.length === 0) {
+    adminsTableContainer.innerHTML = "<p>No admins found.</p>";
+    return;
+  }
+  let html = `<table class="users-table"><thead>
+    <tr><th>Username</th><th>Actions</th></tr></thead><tbody>`;
+  for (const a of admins) {
+    html += `<tr>
+      <td>${a.username}</td>
+      <td><button onclick="deleteAdmin(${a.id}, '${a.username}')">Delete</button></td>
+    </tr>`;
+  }
+  html += "</tbody></table>";
+  adminsTableContainer.innerHTML = html;
+}
+
+// Expose deleteAdmin globally
+window.deleteAdmin = async function(id, username) {
+  if (!confirm(`Delete admin "${username}"?`)) return;
+  adminAddMsg.textContent = '';
+  try {
+    const resp = await fetch(`/api/admin/admins/${id}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': 'Bearer ' + adminToken }
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || "Delete failed");
+    adminAddMsg.textContent = "Admin deleted.";
+    fetchAdmins();
+  } catch (err) {
+    adminAddMsg.textContent = err.message || "Failed to delete admin.";
+  }
+};
+
+addAdminForm.onsubmit = async function(e) {
+  e.preventDefault();
+  adminAddMsg.textContent = '';
+  const username = document.getElementById('new-admin-username').value.trim();
+  const password = document.getElementById('new-admin-password').value;
+  if (!username || !password) {
+    adminAddMsg.textContent = "Username and password required.";
+    return;
+  }
+  try {
+    const resp = await fetch('/api/admin/admins', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + adminToken,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || "Add failed");
+    adminAddMsg.textContent = "Admin added.";
+    addAdminForm.reset();
+    fetchAdmins();
+  } catch (err) {
+    adminAddMsg.textContent = err.message || "Failed to add admin.";
+  }
 };
 
 async function fetchUsers() {
@@ -153,5 +234,6 @@ expiryForm.onsubmit = async function(e) {
   }
 };
 
+fetchAdmins();
 fetchUsers();
 fetchExpiryDays();
