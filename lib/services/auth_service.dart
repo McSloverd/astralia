@@ -61,3 +61,20 @@ class AuthService {
     await _storage.delete(key: 'token');
   }
 }
+
+  Future<String?> checkSession() async {
+    final token = await _storage.read(key: 'token');
+    if (token == null) return 'NoToken';
+    final response = await http.get(
+      Uri.parse('$_apiBase/me'),
+      headers: {'Authorization': 'Bearer $token'},
+    );
+    if (response.statusCode == 200) {
+      return null; // Session OK
+    } else if (response.statusCode == 401 || response.statusCode == 403) {
+      // Deactivated, expired, or kicked out
+      await logout();
+      return 'InvalidSession';
+    }
+    return 'UnknownError';
+  }
