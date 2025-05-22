@@ -1,5 +1,5 @@
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/k/navigtion.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/k/navigtion.dart';
 import 'package:flutter/material.dart';
 
 class LeftNav extends StatelessWidget {

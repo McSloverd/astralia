@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'package:astral/fun/net_astral_udp.dart';
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/src/rust/api/firewall.dart';
-import 'package:astral/src/rust/api/simple.dart';
+import 'package:dudulan/fun/net_astral_udp.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/src/rust/api/firewall.dart';
+import 'package:dudulan/src/rust/api/simple.dart';
 import 'package:flutter/material.dart';
 import 'package:vpn_service_plugin/vpn_service_plugin.dart';
 

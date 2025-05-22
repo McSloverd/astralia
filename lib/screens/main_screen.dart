@@ -1,16 +1,16 @@
 // 导入所需的包
-import 'package:astral/fun/up.dart';
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/screens/home_page.dart';
-import 'package:astral/screens/room_page.dart';
-import 'package:astral/screens/server_page.dart';
-import 'package:astral/screens/settings_page.dart';
-import 'package:astral/screens/user_page.dart';
-import 'package:astral/wid/bottom_nav.dart';
-import 'package:astral/wid/left_nav.dart';
-import 'package:astral/wid/status_bar.dart';
+import 'package:dudulan/fun/up.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/screens/home_page.dart';
+import 'package:dudulan/screens/room_page.dart';
+import 'package:dudulan/screens/server_page.dart';
+import 'package:dudulan/screens/settings_page.dart';
+import 'package:dudulan/screens/user_page.dart';
+import 'package:dudulan/wid/bottom_nav.dart';
+import 'package:dudulan/wid/left_nav.dart';
+import 'package:dudulan/wid/status_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:astral/k/navigtion.dart';
+import 'package:dudulan/k/navigtion.dart';
 
 // 主屏幕Widget，使用StatefulWidget以管理状态
 class MainScreen extends StatefulWidget {
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen>
 
     // 在初始化时进行更新检查
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final updateChecker = UpdateChecker(owner: 'ldoubil', repo: 'astral');
+      final updateChecker = UpdateChecker(owner: 'McSloverd', repo: 'dudulan');
       if (mounted) {
         Future.delayed(const Duration(milliseconds: 1000), () {
           if (mounted) {

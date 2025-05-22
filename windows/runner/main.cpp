@@ -12,7 +12,7 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
   wchar_t windowTitle[bufferSize];
   
   if (GetWindowTextW(hwnd, windowTitle, bufferSize)) {
-    if (_wcsicmp(windowTitle, L"Astral") == 0) {
+    if (_wcsicmp(windowTitle, L"Dudulan") == 0) {
       *((HWND*)lParam) = hwnd;
       return FALSE; 
     }
@@ -57,7 +57,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(1280, 720);
-  if (!window.Create(L"Astral", origin, size)) {
+  if (!window.Create(L"Dudulan", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

@@ -1,7 +1,7 @@
-import 'package:astral/src/rust/api/simple.dart';
+import 'package:dudulan/src/rust/api/simple.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:astral/k/app_s/aps.dart';
+import 'package:dudulan/k/app_s/aps.dart';
 
 // 将列表项卡片抽取为独立的StatefulWidget
 class MiniUserCard extends StatefulWidget {

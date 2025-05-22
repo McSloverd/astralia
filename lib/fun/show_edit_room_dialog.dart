@@ -1,5 +1,5 @@
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/k/models/room.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/k/models/room.dart';
 import 'package:flutter/material.dart';
 
 Future<void> showEditRoomDialog(

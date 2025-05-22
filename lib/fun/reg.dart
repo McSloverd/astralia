@@ -4,7 +4,7 @@ Future<void> handleStartupSetting(bool enable) async {
   final executablePath = Platform.resolvedExecutable;
   final startupFolder =
       '${Platform.environment['APPDATA']}\\Microsoft\\Windows\\Start Menu\\Programs\\Startup';
-  final shortcutPath = '$startupFolder\\Astral.lnk';
+  final shortcutPath = '$startupFolder\\Dudulan.lnk';
 
   if (enable) {
     // 检查快捷方式是否存在

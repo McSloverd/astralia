@@ -1,5 +1,5 @@
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/wid/home_box.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/wid/home_box.dart';
 import 'package:flutter/material.dart';
 import 'package:graphview/GraphView.dart';
 

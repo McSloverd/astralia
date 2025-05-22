@@ -1,0 +1,5 @@
+G:\dudulan\rust\easytier\target\debug\build\heapless-b63f140f737a4fac\build_script_build-b63f140f737a4fac.exe: C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\heapless-0.8.0\build.rs
+
+G:\dudulan\rust\easytier\target\debug\build\heapless-b63f140f737a4fac\build_script_build-b63f140f737a4fac.d: C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\heapless-0.8.0\build.rs
+
+C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\heapless-0.8.0\build.rs:

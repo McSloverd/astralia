@@ -1,11 +1,11 @@
-import 'package:astral/fun/random_name.dart';
-import 'package:astral/k/models/room.dart';
-import 'package:astral/k/models/server_mod.dart';
-import 'package:astral/src/rust/api/simple.dart';
-import 'package:astral/wid/home/connect_button.dart';
+import 'package:dudulan/fun/random_name.dart';
+import 'package:dudulan/k/models/room.dart';
+import 'package:dudulan/k/models/server_mod.dart';
+import 'package:dudulan/src/rust/api/simple.dart';
+import 'package:dudulan/wid/home/connect_button.dart';
 import 'package:flutter/material.dart';
 import 'package:signals_flutter/signals_flutter.dart';
-import 'package:astral/k/database/app_data.dart';
+import 'package:dudulan/k/database/app_data.dart';
 import 'package:uuid/uuid.dart';
 export 'package:signals_flutter/signals_flutter.dart';
 

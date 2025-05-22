@@ -1,4 +1,4 @@
-import 'package:astral/k/app_s/aps.dart';
+import 'package:dudulan/k/app_s/aps.dart';
 import 'package:flutter/material.dart';
 import 'package:system_tray/system_tray.dart';
 import 'dart:io';
@@ -47,7 +47,7 @@ class _WindowControlsState extends State<WindowControls> with WindowListener {
 
     // 添加异常处理
     try {
-      await _systemTray.initSystemTray(title: "Astral", iconPath: path);
+      await _systemTray.initSystemTray(title: "Dudulan", iconPath: path);
       await _systemTray.setContextMenu(menu);
     } catch (e) {
       print('托盘初始化失败: $e');

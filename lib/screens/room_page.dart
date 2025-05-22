@@ -1,14 +1,14 @@
-import 'package:astral/fun/e_d_room.dart';
-import 'package:astral/fun/random_name.dart';
-import 'package:astral/fun/show_add_room_dialog.dart';
-import 'package:astral/fun/show_edit_room_dialog.dart';
-import 'package:astral/screens/user_page.dart';
-import 'package:astral/wid/room_card.dart';
+import 'package:dudulan/fun/e_d_room.dart';
+import 'package:dudulan/fun/random_name.dart';
+import 'package:dudulan/fun/show_add_room_dialog.dart';
+import 'package:dudulan/fun/show_edit_room_dialog.dart';
+import 'package:dudulan/screens/user_page.dart';
+import 'package:dudulan/wid/room_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/k/models/room.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/k/models/room.dart';
 import 'package:uuid/uuid.dart';
 
 class RoomPage extends StatefulWidget {

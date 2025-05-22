@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:astral/wid/home_box.dart';
+import 'package:dudulan/wid/home_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';

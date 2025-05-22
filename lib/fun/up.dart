@@ -111,7 +111,7 @@ class UpdateChecker {
         Uri.parse('https://api.github.com/repos/$owner/$repo/releases'),
         headers: {
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'astral',
+          'User-Agent': 'dudulan',
         },
       );
 

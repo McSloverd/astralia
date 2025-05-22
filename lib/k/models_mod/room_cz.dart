@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:astral/k/models/room.dart'; // 添加 Room 模型的导入
+import 'package:dudulan/k/models/room.dart'; // 添加 Room 模型的导入
 
 class RoomCz {
   final Isar _isar;

@@ -1,16 +1,16 @@
 import 'dart:io';
-import 'package:astral/k/models/all_settings.dart';
-import 'package:astral/k/models/net_config.dart';
-import 'package:astral/k/models/room.dart';
-import 'package:astral/k/models/rule_group.dart';
-import 'package:astral/k/models/server_mod.dart';
-import 'package:astral/k/models_mod/all_settings_cz.dart';
-import 'package:astral/k/models_mod/net_config_cz.dart';
-import 'package:astral/k/models_mod/room_cz.dart';
-import 'package:astral/k/models_mod/server_cz.dart';
+import 'package:dudulan/k/models/all_settings.dart';
+import 'package:dudulan/k/models/net_config.dart';
+import 'package:dudulan/k/models/room.dart';
+import 'package:dudulan/k/models/rule_group.dart';
+import 'package:dudulan/k/models/server_mod.dart';
+import 'package:dudulan/k/models_mod/all_settings_cz.dart';
+import 'package:dudulan/k/models_mod/net_config_cz.dart';
+import 'package:dudulan/k/models_mod/room_cz.dart';
+import 'package:dudulan/k/models_mod/server_cz.dart';
 import 'package:isar/isar.dart';
-import 'package:astral/k/models/theme_settings.dart';
-import 'package:astral/k/models_mod/theme_settings_cz.dart';
+import 'package:dudulan/k/models/theme_settings.dart';
+import 'package:dudulan/k/models_mod/theme_settings_cz.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 

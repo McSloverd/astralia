@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:astral/fun/reg.dart';
-import 'package:astral/fun/up.dart';
-import 'package:astral/k/app_s/aps.dart';
+import 'package:dudulan/fun/reg.dart';
+import 'package:dudulan/fun/up.dart';
+import 'package:dudulan/k/app_s/aps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';

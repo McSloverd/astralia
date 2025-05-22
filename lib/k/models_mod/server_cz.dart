@@ -1,4 +1,4 @@
-import 'package:astral/k/models/server_mod.dart';
+import 'package:dudulan/k/models/server_mod.dart';
 import 'package:isar/isar.dart';
 
 class ServerCz {

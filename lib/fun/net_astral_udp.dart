@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:astral/k/app_s/aps.dart';
+import 'package:dudulan/k/app_s/aps.dart';
 import 'package:flutter/foundation.dart';
 
 Future getIpv4AndIpV6Addresses() async {

@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/wid/theme_selector.dart';
-import 'package:astral/wid/windows_controls.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/wid/theme_selector.dart';
+import 'package:dudulan/wid/windows_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 

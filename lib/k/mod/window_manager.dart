@@ -1,8 +1,8 @@
-import 'package:astral/fun/reg.dart';
+import 'package:dudulan/fun/reg.dart';
 import 'package:window_manager/window_manager.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:astral/k/app_s/aps.dart';
+import 'package:dudulan/k/app_s/aps.dart';
 
 class WindowManagerUtils {
   static Future<void> initializeWindow() async {

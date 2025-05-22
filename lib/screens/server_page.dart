@@ -1,7 +1,7 @@
-import 'package:astral/fun/show_server_dialog.dart';
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/k/models/server_mod.dart';
-import 'package:astral/wid/server_card.dart';
+import 'package:dudulan/fun/show_server_dialog.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/k/models/server_mod.dart';
+import 'package:dudulan/wid/server_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 

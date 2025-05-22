@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:astral/k/models/room.dart';
+import 'package:dudulan/k/models/room.dart';
 import 'dart:io';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 

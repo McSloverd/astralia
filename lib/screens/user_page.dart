@@ -1,7 +1,7 @@
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/src/rust/api/simple.dart';
-import 'package:astral/wid/all_user_card.dart';
-import 'package:astral/wid/mini_user_card.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/src/rust/api/simple.dart';
+import 'package:dudulan/wid/all_user_card.dart';
+import 'package:dudulan/wid/mini_user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';

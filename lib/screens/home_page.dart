@@ -1,11 +1,11 @@
-import 'package:astral/wid/home/about_home.dart';
-import 'package:astral/wid/home/bugcs.dart';
-import 'package:astral/wid/home/servers_home.dart';
-import 'package:astral/wid/home/udp_log.dart';
-import 'package:astral/wid/home/user_ip.dart';
-import 'package:astral/wid/home/virtual_ip.dart';
-import 'package:astral/wid/home/connect_button.dart';
-import 'package:astral/wid/home/win_firewall.dart';
+import 'package:dudulan/wid/home/about_home.dart';
+import 'package:dudulan/wid/home/bugcs.dart';
+import 'package:dudulan/wid/home/servers_home.dart';
+import 'package:dudulan/wid/home/udp_log.dart';
+import 'package:dudulan/wid/home/user_ip.dart';
+import 'package:dudulan/wid/home/virtual_ip.dart';
+import 'package:dudulan/wid/home/connect_button.dart';
+import 'package:dudulan/wid/home/win_firewall.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 

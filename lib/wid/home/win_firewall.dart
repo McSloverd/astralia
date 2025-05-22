@@ -1,6 +1,6 @@
-import 'package:astral/wid/home_box.dart';
+import 'package:dudulan/wid/home_box.dart';
 import 'package:flutter/material.dart';
-import 'package:astral/src/rust/api/firewall.dart';
+import 'package:dudulan/src/rust/api/firewall.dart';
 
 class WinFirewall extends StatefulWidget {
   const WinFirewall({super.key});

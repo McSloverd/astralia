@@ -1,0 +1,11 @@
+G:\dudulan\rust\easytier\target\debug\deps\liblibc-1ebaf605531fba73.rmeta: C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\lib.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\macros.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\primitives.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\mod.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\msvc\mod.rs
+
+G:\dudulan\rust\easytier\target\debug\deps\liblibc-1ebaf605531fba73.rlib: C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\lib.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\macros.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\primitives.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\mod.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\msvc\mod.rs
+
+G:\dudulan\rust\easytier\target\debug\deps\libc-1ebaf605531fba73.d: C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\lib.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\macros.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\primitives.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\mod.rs C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\msvc\mod.rs
+
+C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\lib.rs:
+C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\macros.rs:
+C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\primitives.rs:
+C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\mod.rs:
+C:\Users\Thinkpad\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.172\src\windows\msvc\mod.rs:

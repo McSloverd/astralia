@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:astral/k/models/rule_group.dart';
+import 'package:dudulan/k/models/rule_group.dart';
 
 /// 规则组仓库类
 /// 负责管理和持久化规则组相关的设置

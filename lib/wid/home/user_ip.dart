@@ -1,10 +1,10 @@
-import 'package:astral/k/app_s/aps.dart';
-import 'package:astral/wid/home_box.dart';
-import 'package:astral/wid/canvas_jump.dart';
-import 'package:astral/k/models/room.dart';
+import 'package:dudulan/k/app_s/aps.dart';
+import 'package:dudulan/wid/home_box.dart';
+import 'package:dudulan/wid/canvas_jump.dart';
+import 'package:dudulan/k/models/room.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:astral/services/auth_service.dart';
+import 'package:dudulan/services/auth_service.dart';
 
 class UserIpBox extends StatefulWidget {
   const UserIpBox({super.key});
