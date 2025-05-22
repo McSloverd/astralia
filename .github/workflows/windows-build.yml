@@ -1,4 +1,4 @@
-name: 🪟 构建 Windows 应用
+name: 🛠️ 构建 Windows 应用
 
 on:
   workflow_dispatch:
