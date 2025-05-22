@@ -798,10 +798,10 @@ class _SettingsPageState extends State<SettingsPage> {
               const ListTile(leading: Icon(Icons.info), title: Text('关于')),
               ListTile(
                 leading: const Icon(Icons.group),
-                title: const Text('官方QQ群 808169040'),
+                title: const Text('DUDU重工 官方QQ群 932267169'),
                 subtitle: const Text('点击复制群号'),
                 onTap: () async {
-                  const qqGroup = '808169040'; // 替换为实际QQ群号
+                  const qqGroup = '932267169'; // 替换为实际QQ群号
                   await Clipboard.setData(const ClipboardData(text: qqGroup));
                   ScaffoldMessenger.of(
                     context,
@@ -818,8 +818,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: const Text('检查更新'),
                 onTap: () {
                   final updateChecker = UpdateChecker(
-                    owner: 'ldoubil',
-                    repo: 'astral',
+                    owner: 'McSloverd',
+                    repo: 'astralia',
                   );
                   if (mounted) {
                     updateChecker.checkForUpdates(context);
@@ -892,18 +892,18 @@ class _SettingsPageState extends State<SettingsPage> {
         feedback['feedback']?.trim().isNotEmpty == true &&
         feedback['email']?.trim().isNotEmpty == true &&
         feedback['name']?.trim().isNotEmpty == true) {
-      final sentryId = Sentry.captureMessage(
-        "User Feedback from Settings Page",
-      );
+      // final sentryId = Sentry.captureMessage(
+      //   "User Feedback from Settings Page",
+      // );
 
-      final userFeedback = SentryUserFeedback(
-        eventId: await sentryId,
-        comments: feedback['feedback']!,
-        email: feedback['email']!,
-        name: feedback['name']!,
-      );
+      // final userFeedback = SentryUserFeedback(
+      //   eventId: await sentryId,
+      //   comments: feedback['feedback']!,
+      //   email: feedback['email']!,
+      //   name: feedback['name']!,
+      // );
 
-      await Sentry.captureUserFeedback(userFeedback);
+      // await Sentry.captureUserFeedback(userFeedback);
     }
   }
 }
