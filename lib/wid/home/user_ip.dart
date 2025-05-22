@@ -4,6 +4,7 @@ import 'package:astral/wid/canvas_jump.dart';
 import 'package:astral/k/models/room.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:astral/services/auth_service.dart';
 
 class UserIpBox extends StatefulWidget {
   const UserIpBox({super.key});
@@ -13,14 +14,14 @@ class UserIpBox extends StatefulWidget {
 }
 
 class _UserIpBoxState extends State<UserIpBox> {
-  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _virtualIPController = TextEditingController();
   final TextEditingController _roomController = TextEditingController();
 
-  final FocusNode _usernameControllerFocusNode = FocusNode();
   final FocusNode _virtualIPFocusNode = FocusNode();
 
   final Aps _aps = Aps();
+
+  late Future<String?> _usernameFuture;
 
   @override
   void initState() {
@@ -28,18 +29,16 @@ class _UserIpBoxState extends State<UserIpBox> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // 初始化时同步一次状态
       effect(() {
-        _usernameController.text = _aps.PlayerName.value;
         _virtualIPController.text = _aps.ipv4.value;
         _roomController.text = _aps.selectroom.value?.name ?? '';
       });
     });
+    _usernameFuture = AuthService().getCurrentUsername();
   }
 
   @override
   void dispose() {
-    _usernameController.dispose();
     _virtualIPController.dispose();
-    _usernameControllerFocusNode.dispose();
     _virtualIPFocusNode.dispose();
     _roomController.dispose();
     super.dispose();
@@ -94,22 +93,25 @@ class _UserIpBoxState extends State<UserIpBox> {
           ),
           const SizedBox(height: 14),
 
-          TextField(
-            controller: _usernameController,
-            focusNode: _usernameControllerFocusNode,
-            enabled: (Aps().Connec_state.watch(context) == CoState.connected)
-                ? false
-                : true,
-            onChanged: (value) {
-              _aps.updatePlayerName(value);
+          // Username display (read-only)
+          FutureBuilder<String?>(
+            future: _usernameFuture,
+            builder: (context, snapshot) {
+              String username = snapshot.data ?? '未登录';
+              return InputDecorator(
+                decoration: InputDecoration(
+                  labelText: '用户名',
+                  border: const OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.person, color: colorScheme.primary),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12), 
+                ),
+                child: Text(
+                  username,
+                  style: const TextStyle(fontSize: 16),
+                ),
+              );
             },
-            decoration: InputDecoration(
-              labelText: '用户名',
-              border: const OutlineInputBorder(),
-              prefixIcon: Icon(Icons.person, color: colorScheme.primary),
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12), 
-            ),
           ),
           const SizedBox(height: 14),
 
