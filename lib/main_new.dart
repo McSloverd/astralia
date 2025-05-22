@@ -1,29 +1,49 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-import 'screens/login_screen.dart';
-import 'screens/main_screen.dart';
+import 'dart:io';
+
+import 'package:astral/fun/up.dart';
+import 'package:astral/k/database/app_data.dart';
+import 'package:astral/k/mod/window_manager.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:astral/src/rust/frb_generated.dart';
+import 'package:astral/app.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'services/auth_service.dart';
+import 'screens/login_screen.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  BindingBase.debugZoneErrorsAreFatal = true;
+
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await AppDatabase().init();
+      AppInfoUtil.init();
+      await RustLib.init();
+
+      if (!kIsWeb &&
+          (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+        await WindowManagerUtils.initializeWindow();
+      }
+
+      await SentryFlutter.init((options) {
+        options.dsn =
+            'https://8ddef9dc25ba468431473fc15187df30@o4509285217402880.ingest.de.sentry.io/4509285224087632';
+      });
+
+      runApp(const AuthGate());
+    },
+    (exception, stackTrace) async {
+      await Sentry.captureException(exception, stackTrace: stackTrace);
+    },
+  );
 }
 
-class MyApp extends StatelessWidget {
-  final AuthService _authService = AuthService();
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'DUDU LAN',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: AuthGate(),
-    );
-  }
-}
-
+/// AuthGate handles login state and session polling.
 class AuthGate extends StatefulWidget {
+  const AuthGate({Key? key}) : super(key: key);
+
   @override
   State<AuthGate> createState() => _AuthGateState();
 }
@@ -31,6 +51,7 @@ class AuthGate extends StatefulWidget {
 class _AuthGateState extends State<AuthGate> {
   bool _isLoggedIn = false;
   Timer? _sessionTimer;
+  bool _loading = true;
 
   @override
   void initState() {
@@ -39,9 +60,8 @@ class _AuthGateState extends State<AuthGate> {
   }
 
   void _startSessionPoll() {
-    // Poll every 20 seconds
     _sessionTimer?.cancel();
-    _sessionTimer = Timer.periodic(Duration(seconds: 20), (_) async {
+    _sessionTimer = Timer.periodic(const Duration(seconds: 20), (_) async {
       final authService = AuthService();
       final result = await authService.checkSession();
       if (result == 'InvalidSession') {
@@ -62,6 +82,7 @@ class _AuthGateState extends State<AuthGate> {
     if (mounted) {
       setState(() {
         _isLoggedIn = isLoggedIn;
+        _loading = false;
       });
       if (isLoggedIn) _startSessionPoll();
     }
@@ -75,6 +96,11 @@ class _AuthGateState extends State<AuthGate> {
 
   @override
   Widget build(BuildContext context) {
-    return _isLoggedIn ? MainScreen() : LoginScreen();
+    if (_loading) {
+      return const MaterialApp(
+        home: Scaffold(body: Center(child: CircularProgressIndicator())),
+      );
+    }
+    return _isLoggedIn ? const KevinApp() : MaterialApp(home: LoginScreen());
   }
 }
