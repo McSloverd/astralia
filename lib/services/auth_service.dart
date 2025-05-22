@@ -1,17 +1,41 @@
-mport 'dart:convert';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../screens/login_screen.dart';
 
 class AuthService {
+  static const _tokenKey = 'auth_token';
+  static const _usernameKey = 'username';
   static final _storage = FlutterSecureStorage();
   static const _apiBase = 'http://localhost:3000/api'; // Adjust to your server address
 
+  // Save login session and username
+  Future<void> saveLoginSession(String token, String username) async {
+    await _storage.write(key: _tokenKey, value: token);
+    await _storage.write(key: _usernameKey, value: username);
+  }
+
+  // Clear session data
+  Future<void> clearSession() async {
+    await _storage.delete(key: _tokenKey);
+    await _storage.delete(key: _usernameKey);
+  }
+
+  // Retrieve the authentication token
+  Future<String?> getToken() async {
+    return _storage.read(key: _tokenKey);
+  }
+
+  // Retrieve the stored username
+  Future<String?> getCurrentUsername() async {
+    return _storage.read(key: _usernameKey);
+  }
+
   // Check if user is logged in (token exists)
   Future<bool> isLoggedIn() async {
-    final token = await _storage.read(key: 'token');
-    return token != null;
+    final token = await getToken();
+    return token != null && token.isNotEmpty;
   }
 
   // Login with username and password
@@ -26,8 +50,14 @@ class AuthService {
       if (data['status'] == 'kicked') {
         return 'kicked';
       }
+      if (data['token'] != null && data['username'] != null) {
+        // Save both token and username
+        await saveLoginSession(data['token'], data['username']);
+        return true;
+      }
+      // Legacy: save token only if username not provided (fallback, but should always send username)
       if (data['token'] != null) {
-        await _storage.write(key: 'token', value: data['token']);
+        await _storage.write(key: _tokenKey, value: data['token']);
         return true;
       }
       return false;
@@ -70,7 +100,7 @@ class AuthService {
 
   // Logout user
   Future logout() async {
-    await _storage.delete(key: 'token');
+    await clearSession();
   }
 
   /// Logs out and navigates to the login screen, clearing the navigation stack.
@@ -86,16 +116,23 @@ class AuthService {
 
   // Check session validity (for polling or background checks)
   Future<String?> checkSession() async {
-    final token = await _storage.read(key: 'token');
+    final token = await getToken();
+
     if (token == null) return 'NoToken';
     final response = await http.get(
       Uri.parse('$_apiBase/me'),
       headers: {'Authorization': 'Bearer $token'},
     );
     if (response.statusCode == 200) {
+      // Optionally update username if your API returns it:
+      try {
+        final data = jsonDecode(response.body);
+        if (data['username'] != null) {
+          await _storage.write(key: _usernameKey, value: data['username']);
+        }
+      } catch (_) {}
       return null; // Session OK
     } else if (response.statusCode == 401 || response.statusCode == 403) {
-      // Session invalid, deactivated, expired, or kicked out
       await logout();
       return 'InvalidSession';
     }
@@ -104,7 +141,7 @@ class AuthService {
 
   /// Example of a protected API call that will log out and navigate to login if session is invalid
   Future<bool> someProtectedCall(BuildContext context) async {
-    final token = await _storage.read(key: 'token');
+    final token = await getToken();
     final response = await http.get(
       Uri.parse('$_apiBase/some-protected-endpoint'),
       headers: {'Authorization': 'Bearer $token'},
