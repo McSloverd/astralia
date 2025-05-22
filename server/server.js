@@ -253,6 +253,29 @@ app.post('/api/admin/admins', authenticateAdmin, async (req, res) => {
   res.status(201).json({ message: 'Admin created' });
 });
 
+// Admin: list all admins
+app.get('/api/admin/admins', authenticateAdmin, async (req, res) => {
+  const db = await openDb();
+  const admins = await db.all(
+    `SELECT id, username FROM admins ORDER BY username`
+  );
+  res.json({ admins });
+});
+
+// Admin: delete another admin (cannot delete self)
+app.delete('/api/admin/admins/:id', authenticateAdmin, async (req, res) => {
+  const db = await openDb();
+  const { id } = req.params;
+  // Prevent deleting self
+  const admin = await db.get('SELECT * FROM admins WHERE id = ?', id);
+  if (!admin) return res.status(404).json({ error: 'Admin not found' });
+  if (admin.username === req.admin.username) {
+    return res.status(403).json({ error: "You can't delete your own admin account." });
+  }
+  await db.run('DELETE FROM admins WHERE id = ?', id);
+  res.json({ message: 'Admin deleted' });
+});
+
 // Serve admin GUI
 app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(ADMIN_DIR, 'index.html'));
