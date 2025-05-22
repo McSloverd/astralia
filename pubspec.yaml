@@ -1,5 +1,5 @@
-name: astral
-description: "astral"
+name: dudu_lan
+description: "dudu_lan"
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 
@@ -9,6 +9,8 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
+  flutter_secure_storage: ^9.0.0 # (or whatever version you use)
+  flutter_secure_storage_windows: ^1.1.0
   vpn_service_plugin:
     path: vpn_service_plugin
   flutter:
