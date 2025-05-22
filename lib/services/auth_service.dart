@@ -1,13 +1,50 @@
 import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+// Conditional import for storage
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../screens/login_screen.dart';
+
+// Cross-platform storage abstraction
+class _CrossPlatformStorage {
+  static final _secureStorage = FlutterSecureStorage();
+
+  Future<void> write({required String key, required String value}) async {
+    if (kIsWeb || Platform.isAndroid || Platform.isIOS || Platform.isMacOS || Platform.isLinux) {
+      await _secureStorage.write(key: key, value: value);
+    } else if (Platform.isWindows) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(key, value);
+    }
+  }
+
+  Future<String?> read({required String key}) async {
+    if (kIsWeb || Platform.isAndroid || Platform.isIOS || Platform.isMacOS || Platform.isLinux) {
+      return await _secureStorage.read(key: key);
+    } else if (Platform.isWindows) {
+      final prefs = await SharedPreferences.getInstance();
+      return prefs.getString(key);
+    }
+    return null;
+  }
+
+  Future<void> delete({required String key}) async {
+    if (kIsWeb || Platform.isAndroid || Platform.isIOS || Platform.isMacOS || Platform.isLinux) {
+      await _secureStorage.delete(key: key);
+    } else if (Platform.isWindows) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove(key);
+    }
+  }
+}
 
 class AuthService {
   static const _tokenKey = 'auth_token';
   static const _usernameKey = 'username';
-  static final _storage = FlutterSecureStorage();
+  static final _storage = _CrossPlatformStorage();
   static const _apiBase = 'http://localhost:3000/api'; // Adjust to your server address
 
   // Save login session and username
