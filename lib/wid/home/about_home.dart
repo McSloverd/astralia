@@ -42,7 +42,7 @@ class _AboutHomeState extends State<AboutHome> {
               ), // 修改标题图标
               const SizedBox(width: 8),
               const Text(
-                '关于 DUDU LAN',
+                '关于 DUDU LAN - DUDU重工',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
               ),
             ],
@@ -77,7 +77,7 @@ class _AboutHomeState extends State<AboutHome> {
                 color: colorScheme.primary,
               ), // 内核版本图标
               const Text(
-                '注意: ',
+                '注意:    ',
                 style: TextStyle(fontWeight: FontWeight.w700),
               ),
               Text(
