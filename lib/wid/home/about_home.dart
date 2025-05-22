@@ -42,7 +42,7 @@ class _AboutHomeState extends State<AboutHome> {
               ), // 修改标题图标
               const SizedBox(width: 8),
               const Text(
-                '关于',
+                '关于 DUDU LAN',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
               ),
             ],
@@ -57,11 +57,12 @@ class _AboutHomeState extends State<AboutHome> {
                 color: colorScheme.primary,
               ), // 软件版本图标
               const Text(
-                '软件版本: ',
+                '官方QQ群: ',
                 style: TextStyle(fontWeight: FontWeight.w700),
               ),
               Text(
-                AppInfoUtil.getVersion(),
+                //AppInfoUtil.getVersion(),
+                '932267169',
                 style: TextStyle(color: colorScheme.secondary),
               ),
             ],
@@ -76,10 +77,14 @@ class _AboutHomeState extends State<AboutHome> {
                 color: colorScheme.primary,
               ), // 内核版本图标
               const Text(
-                '内核版本: ',
+                '注意: ',
                 style: TextStyle(fontWeight: FontWeight.w700),
               ),
-              Text(version, style: TextStyle(color: colorScheme.secondary)),
+              Text(
+                //version, 
+                '滥用将会导致封禁！',
+                style: TextStyle(color: colorScheme.secondary)
+              ),
             ],
           ),
         ],
