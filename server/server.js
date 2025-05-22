@@ -156,7 +156,8 @@ app.post('/api/login', async (req, res) => {
     userIp,
     username
   );
-  res.json({ token });
+  // Always return username as well as token
+  res.json({ token, username });
 });
 
 // Logout (optional)
@@ -164,6 +165,12 @@ app.post('/api/logout', authenticateToken, async (req, res) => {
   const db = await openDb();
   await db.run(`UPDATE users SET last_active_token = NULL WHERE id = ?`, req.user.id);
   res.json({ message: 'Logged out' });
+});
+
+// Authenticated user info (for session polling)
+app.get('/api/me', authenticateToken, async (req, res) => {
+  // Return the current user's username and status (you can add more fields as needed)
+  res.json({ username: req.user.username, status: req.user.status });
 });
 
 // Admin login
