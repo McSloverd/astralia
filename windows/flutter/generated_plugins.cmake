@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   app_links
   flutter_localization
+  flutter_secure_storage_windows
   isar_flutter_libs
   screen_retriever_windows
   sentry_flutter

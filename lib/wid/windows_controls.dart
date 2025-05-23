@@ -50,7 +50,7 @@ class _WindowControlsState extends State<WindowControls> with WindowListener {
       await _systemTray.initSystemTray(title: "Dudulan", iconPath: path);
       await _systemTray.setContextMenu(menu);
     } catch (e) {
-      print('托盘初始化失败: $e');
+      // print('托盘初始化失败: $e');
     }
 
     // 注册右键事件处理

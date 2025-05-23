@@ -1,9 +1,9 @@
-import 'package:dudulan/fun/up.dart';
-import 'package:dudulan/k/app_s/aps.dart';
+// import 'package:dudulan/fun/up.dart';
+// import 'package:dudulan/k/app_s/aps.dart';
 import 'package:dudulan/src/rust/api/simple.dart';
 import 'package:dudulan/wid/home_box.dart';
 import 'package:flutter/material.dart';
-import 'package:graphview/GraphView.dart';
+// import 'package:graphview/GraphView.dart';
 
 class AboutHome extends StatefulWidget {
   const AboutHome({super.key});

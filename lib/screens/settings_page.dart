@@ -5,7 +5,7 @@ import 'package:dudulan/fun/up.dart';
 import 'package:dudulan/k/app_s/aps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
+// import 'package:sentry_flutter/sentry_flutter.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -804,6 +804,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   const qqGroup = '932267169'; // 替换为实际QQ群号
                   await Clipboard.setData(const ClipboardData(text: qqGroup));
                   ScaffoldMessenger.of(
+                    // ignore: use_build_context_synchronously
                     context,
                   ).showSnackBar(const SnackBar(content: Text('群号已复制到剪贴板')));
                 },

@@ -524,7 +524,7 @@ class _AllUserCardState extends State<AllUserCard> {
       return '服务器';
     }
     // 如果是本机IP，返回direct
-    if (thisip != null && ip == thisip) {
+    if (ip == thisip) {
       // 检查 thisip 是否为 null
       return '本机';
     }

@@ -11,7 +11,7 @@ class WinFirewall extends StatefulWidget {
 
 class _WinFirewallState extends State<WinFirewall> {
   bool _isBatchLoading = false;
-  Map<String, bool> _firewallStatus = {
+  final Map<String, bool> _firewallStatus = {
     'Domain': false,
     'Private': false,
     'Public': false,

@@ -2,7 +2,7 @@ import 'package:dudulan/fun/random_name.dart';
 import 'package:dudulan/k/models/room.dart';
 import 'package:dudulan/k/models/server_mod.dart';
 import 'package:dudulan/src/rust/api/simple.dart';
-import 'package:dudulan/wid/home/connect_button.dart';
+// import 'package:dudulan/wid/home/connect_button.dart';
 import 'package:flutter/material.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 import 'package:dudulan/k/database/app_data.dart';
@@ -512,7 +512,7 @@ class Aps {
   /// 添加房间
   Future<void> addRoom(Room room) async {
     await AppDatabase().RoomSetting.addRoom(room);
-    print("添加房间" + room.name);
+    // print("添加房间" + room.name);
     rooms.value = await AppDatabase().RoomSetting.getAllRooms();
   }
 

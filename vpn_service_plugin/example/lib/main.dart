@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       // 准备 VPN
       final prepareResult = await _vpnPlugin.prepareVpn();
       if (prepareResult.containsKey('errorMsg')) {
-        print('VPN 准备失败: ${prepareResult['errorMsg']}');
+        // print('VPN 准备失败: ${prepareResult['errorMsg']}');
         return;
       }
 
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       );
 
       if (startResult.containsKey('errorMsg')) {
-        print('VPN 启动失败: ${startResult['errorMsg']}');
+        // print('VPN 启动失败: ${startResult['errorMsg']}');
         return;
       }
     } else {

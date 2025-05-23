@@ -22,13 +22,13 @@ dev_dependencies:
 flutter:
   plugin:
     platforms:
-      android:
-        ffiPlugin: true
-      ios:
-        ffiPlugin: true
-      linux:
-        ffiPlugin: true
-      macos:
-        ffiPlugin: true
+      # android:
+      #   ffiPlugin: false
+      # ios:
+      #   ffiPlugin: false
+      # linux:
+      #   ffiPlugin: false
+      # macos:
+      #   ffiPlugin: false
       windows:
         ffiPlugin: true

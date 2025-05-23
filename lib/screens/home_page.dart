@@ -1,5 +1,5 @@
 import 'package:dudulan/wid/home/about_home.dart';
-import 'package:dudulan/wid/home/bugcs.dart';
+// import 'package:dudulan/wid/home/bugcs.dart';
 import 'package:dudulan/wid/home/servers_home.dart';
 import 'package:dudulan/wid/home/udp_log.dart';
 import 'package:dudulan/wid/home/user_ip.dart';

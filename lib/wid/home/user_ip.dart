@@ -3,7 +3,7 @@ import 'package:dudulan/wid/home_box.dart';
 import 'package:dudulan/wid/canvas_jump.dart';
 import 'package:dudulan/k/models/room.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:dudulan/services/auth_service.dart';
 
 class UserIpBox extends StatefulWidget {

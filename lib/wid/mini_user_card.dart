@@ -1,7 +1,7 @@
 import 'package:dudulan/src/rust/api/simple.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dudulan/k/app_s/aps.dart';
+// import 'package:dudulan/k/app_s/aps.dart';
 
 // 将列表项卡片抽取为独立的StatefulWidget
 class MiniUserCard extends StatefulWidget {
@@ -300,7 +300,7 @@ String _mapConnectionType(int connType, String ip, String thisip) {
     return '服务器';
   }
   // 如果是本机IP，返回direct
-  if (thisip != null && ip == thisip) {
+  if (ip == thisip) {
     // 检查 thisip 是否为 null
     return '本机';
   }

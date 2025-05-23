@@ -1,7 +1,7 @@
-import 'package:dudulan/lib/fun/net_astral_udp.dart';
+import 'package:dudulan/fun/net_astral_udp.dart';
 import 'package:dudulan/screens/main_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:dudulan/k/app_s/aps.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 // 仅在桌面平台导入系统托盘
 

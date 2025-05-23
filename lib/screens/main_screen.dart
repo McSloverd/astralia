@@ -5,7 +5,7 @@ import 'package:dudulan/screens/home_page.dart';
 import 'package:dudulan/screens/room_page.dart';
 import 'package:dudulan/screens/server_page.dart';
 import 'package:dudulan/screens/settings_page.dart';
-import 'package:dudulan/screens/user_page.dart';
+// import 'package:dudulan/screens/user_page.dart';
 import 'package:dudulan/wid/bottom_nav.dart';
 import 'package:dudulan/wid/left_nav.dart';
 import 'package:dudulan/wid/status_bar.dart';

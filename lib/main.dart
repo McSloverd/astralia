@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'fun/up.dart';
-import 'k/database/app_data.dart';
-import 'k/mod/window_manager.dart';
+import 'package:dudulan/fun/up.dart';
+import 'package:dudulan/k/database/app_data.dart';
+import 'package:dudulan/k/mod/window_manager.dart';
+import 'package:dudulan/src/rust/frb_generated.dart';
+import 'package:dudulan/app.dart';
+import 'package:dudulan/services/auth_service.dart';
+import 'package:dudulan/screens/login_screen.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'src/rust/frb_generated.dart';
-import 'app.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-import 'services/auth_service.dart';
-import 'screens/login_screen.dart';
 
 void main() async {
   BindingBase.debugZoneErrorsAreFatal = true;
@@ -42,7 +42,7 @@ void main() async {
 
 /// AuthGate handles login state and session polling.
 class AuthGate extends StatefulWidget {
-  const AuthGate({Key? key}) : super(key: key);
+  const AuthGate({super.key});
 
   @override
   State<AuthGate> createState() => _AuthGateState();

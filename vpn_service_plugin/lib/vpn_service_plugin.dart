@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'vpn_service_plugin_platform_interface.dart';
 
 class VpnServicePlugin {
-  static const MethodChannel _channel = MethodChannel('vpn_service');
+  // static const MethodChannel _channel = MethodChannel('vpn_service');
   static const EventChannel _eventChannel = EventChannel('vpn_service_events');
 
   // VPN服务事件流
