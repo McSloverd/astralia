@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
+  <title>控制面板</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="admin-container">
-    <h2>Admin Dashboard</h2>
-    <button id="logout-btn" class="logout-btn">Logout</button>
+    <h2>控制面板</h2>
+    <button id="logout-btn" class="logout-btn">退出</button>
     <section id="settings-section">
-      <h3>Settings</h3>
+      <h3>设置</h3>
       <form id="expiry-form">
-        <label for="expiry-days">Default User Expiry (days): </label>
+        <label for="expiry-days">默认用户失效时长 (天): </label>
         <input type="number" id="expiry-days" min="1" required>
-        <button type="submit">Update</button>
+        <button type="submit">更新</button>
       </form>
       <div id="expiry-success" class="success"></div>
     </section>
     <section>
-      <h3>Users</h3>
+      <h3>用户</h3>
       <div id="users-table-container"></div>
       <div id="user-action-msg"></div>
     </section>
-  </div>
-  <section>
-      <h3>Admins</h3>
+    <section>
+      <h3>管理员</h3>
       <form id="add-admin-form">
         <input type="text" id="new-admin-username" placeholder="Username" required>
         <input type="password" id="new-admin-password" placeholder="Password" required>
-        <button type="submit">Add Admin</button>
+        <button type="submit">添加管理员</button>
       </form>
       <div id="admin-add-msg"></div>
       <div id="admins-table-container"></div>
     </section>
+  </div>
   <script src="admin.js"></script>
 </body>
 </html>

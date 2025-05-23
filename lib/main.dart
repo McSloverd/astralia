@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dudulan/fun/up.dart';
-import 'package:dudulan/k/database/app_data.dart';
-import 'package:dudulan/k/mod/window_manager.dart';
+import 'fun/up.dart';
+import 'k/database/app_data.dart';
+import 'k/mod/window_manager.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:dudulan/src/rust/frb_generated.dart';
-import 'package:dudulan/app.dart';
+import 'src/rust/frb_generated.dart';
+import 'app.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'services/auth_service.dart';
 import 'screens/login_screen.dart';
